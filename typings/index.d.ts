@@ -1,7 +1,7 @@
-declare module "josh" {
+declare module 'josh' {
   export interface JoshOptions<T = unknown> {
     name: string;
-    provider: unknown,
+    provider: unknown;
     ensureProps?: boolean;
     autoEnsure?: T;
     serializer?: (data: T) => Promise<T>;
@@ -21,9 +21,7 @@ declare module "josh" {
 
     public get<K extends unknown = T>(keyOrPath: string): Promise<K>;
 
-    public getMany<K extends unknown = T>(
-      keyOrPaths: string[]
-    ): Promise<K[]>;
+    public getMany<K extends unknown = T>(keyOrPaths: string[]): Promise<K[]>;
 
     public random(count: number): Promise<[string, T][]>;
 
@@ -33,14 +31,14 @@ declare module "josh" {
 
     public set<K extends unknown = T>(
       keyOrPath: string,
-      value: K
+      value: K,
     ): Promise<Josh<T>>;
 
     public setMany(data: [string, T][], overwrite?: boolean): Promise<Josh<T>>;
 
     public update<K extends Partial<unknown> = Partial<T>>(
       keyOrPath: string,
-      input: K
+      input: K,
     ): Promise<K>;
 
     public ensure(keyOrPath: string, defaultValue: T): Promise<T>;
@@ -50,12 +48,12 @@ declare module "josh" {
     public push<K extends unknown = T>(
       keyOrPath: string,
       value: K,
-      allowDupes: boolean
+      allowDupes: boolean,
     ): Promise<Josh<T>>;
 
     public remove<K extends unknown = T>(
       keyOrPath: string,
-      value: K
+      value: K,
     ): Promise<Josh<T>>;
 
     public inc(keyOrPath: string): Promise<Josh<T>>;
@@ -64,38 +62,38 @@ declare module "josh" {
 
     public find<K extends unknown = T>(
       pathOrFn: string | ((value: K) => Promise<boolean> | boolean),
-      predicate?: string
+      predicate?: string,
     ): Promise<T>;
 
     public filter<K extends unknown = T>(
       pathOrFn: string | ((value: K) => Promise<boolean> | boolean),
-      predicate?: string
+      predicate?: string,
     ): Promise<[string, T][]>;
 
     public map<K extends unknown = T>(
-      pathOrFn: string | ((value: T) => Promise<K> | K)
+      pathOrFn: string | ((value: T) => Promise<K> | K),
     ): Promise<K[]>;
 
     public includes<K extends unknown = T>(
       keyOrPath: string,
-      value: K
+      value: K,
     ): Promise<boolean>;
 
     public some(
       keyOrPath: string,
-      value: string | number | boolean | null
+      value: string | number | boolean | null,
     ): Promise<boolean>;
 
     public every(
       pathOrFn: string,
-      value: string | number | boolean | null
+      value: string | number | boolean | null,
     ): Promise<boolean>;
 
     public math(
       keyOrPath: string,
       operation: string,
       operand: number,
-      path?: string
+      path?: string,
     ): Promise<Josh<T>>;
 
     public get autoId(): Promise<string>;
@@ -103,7 +101,7 @@ declare module "josh" {
     public import(
       data: string,
       overwrite?: boolean,
-      clear?: boolean
+      clear?: boolean,
     ): Promise<Josh<T>>;
 
     public export(): Promise<string>;
