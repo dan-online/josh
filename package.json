@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "docs": "node ./docs/build.js",
-    "build": "tsc index.ts --target es6 --module ESNext --allowSyntheticDefaultImports --resolveJsonModule --outDir ./dist --moduleResolution node"
+    "build": "tsc index.ts --target es6 --module ESNext --declaration --allowSyntheticDefaultImports --resolveJsonModule --outDir ./dist --moduleResolution node"
   },
   "repository": {
     "type": "git",
